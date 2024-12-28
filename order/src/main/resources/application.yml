@@ -1,0 +1,36 @@
+server:
+  port: 10000
+
+spring:
+  application:
+    name: order-service
+
+  h2:
+    console:
+      enabled: true
+      settings:
+        web-allow-others: true
+      path: /h2-console
+    jpa:
+      hibernate:
+        ddl-auto: update
+    datasource:
+      driver-class-name: org.h2.Driver
+      url: jdbc:h2:mem:testdb
+      username: sa
+      password:
+
+eureka:
+  instance:
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:19000/eureka/
+# Spring Boot 3.2 이상에서는 Micrometer Tracing 라이브러리를 사용하면 자동으로 MDC에 traceId와 spanId가 설정됩니다
+logging:
+  level:
+    com.example.orderservice: DEBUG
+  pattern:
+    correlation: '%5p [${spring.application.name:},%X{traceId:-},%X{spanId:-}]'
