@@ -31,6 +31,6 @@ eureka:
 # Spring Boot 3.2 이상에서는 Micrometer Tracing 라이브러리를 사용하면 자동으로 MDC에 traceId와 spanId가 설정됩니다
 logging:
   level:
-    com.example.orderservice: DEBUG
+    com.example.order: DEBUG
   pattern:
     correlation: '%5p [${spring.application.name:},%X{traceId:-},%X{spanId:-}]'

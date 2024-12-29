@@ -64,6 +64,8 @@ public class OrderController {
         orderDto.setTotalPrice(orderDetails.getQty() * orderDetails.getUnitPrice());
 
         /* send this order to the kafka */
+        // orderDto.getOrderId()를 중간에 넣어주면 파티션으로 구분된다.
+//        kafkaProducer.send("example-catalog-topic", orderDto.getOrderId(), orderDto);
         kafkaProducer.send("example-catalog-topic", orderDto);
 
         log.info("After added orders data");

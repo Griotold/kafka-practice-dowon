@@ -3,7 +3,7 @@ POST localhost:10000/order-service/123-err-2r2t/orders
 Content-Type: application/json
 
 {
-  "productId": "CATALOG-002",
-  "qty": 10,
+  "productId": "CATALOG-003",
+  "qty": 25,
   "unitPrice": 1500
 }

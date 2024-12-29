@@ -1,4 +1,5 @@
 rootProject.name = 'kafka'
 include 'eureka'
 include 'order'
+include 'catalog'
 
